@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bianca Oliveira - WhatsApp</title>
+  <title>Lais Borges - WhatsApp</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -100,12 +100,12 @@
 
   <div class="container">
     <div class="profile">
-      <img src="https://i.ibb.co/Q732h5xv/Captura-de-tela-2025-06-02-201808.png" alt="Bianca Oliveira">
+      <img src="https://i.ibb.co/QtZQKT5" alt="Lais Borges">
       <div class="online-indicator"></div>
     </div>
 
-    <h2>Bianca Oliveira</h2>
-    <p>22 anos</p>
+    <h2>Lais Borges</h2>
+    <p>21 anos</p>
     <p>Bahia / São Paulo</p>
 
     <button class="btn-whatsapp" onclick="redirecionarWhatsApp()">Falar no WhatsApp</button>
@@ -114,7 +114,6 @@
   <script>
     const numerosWhatsApp = [
       '550000000001',
-   
       '550000000010'
     ];
 
@@ -128,8 +127,8 @@
       localStorage.setItem('whatsAppIndex', index);
 
       const numero = numerosWhatsApp[index];
-      const mensagem = encodeURIComponent("Olá, Bianca! Quero falar com você.");
-      const link = https://wa.me/${numero}?text=${mensagem};
+      const mensagem = encodeURIComponent("Olá, Lais! Quero falar com você.");
+      const link = `https://wa.me/${numero}?text=${mensagem}`;
 
       window.location.href = link;
     }
