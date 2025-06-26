@@ -1,67 +1,139 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lais Borges</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lais Borges - WhatsApp</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background-color: #e9e1d9;
       font-family: Arial, sans-serif;
+      background-color: #e5ddd5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
     }
-    .card {
-      max-width: 400px;
-      margin: 100px auto;
-      background: white;
-      padding: 30px;
+
+    .container {
+      background-color: #ffffff;
       border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      padding: 20px;
+      max-width: 400px;
+      width: 90%;
       text-align: center;
+      position: relative;
     }
-    .card img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
+
+    .profile {
+      position: relative;
+      display: inline-block;
+    }
+
+    .profile img {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      border: 5px solid #2ecc71;
+      object-fit: cover;
+      border: 3px solid #25D366;
     }
+
+    .online-indicator {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      width: 20px;
+      height: 20px;
+      background-color: #25D366;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+    }
+
     h2 {
-      margin: 15px 0 5px;
-      color: #2c3e50;
+      margin: 15px 0 5px 0;
+      color: #075E54;
     }
+
     p {
       margin: 5px 0;
       color: #555;
+      font-size: 15px;
     }
-    .whatsapp-button {
-      margin-top: 20px;
-      background-color: #2ecc71;
+
+    .btn-whatsapp {
+      display: inline-block;
+      background-color: #25D366;
       color: white;
-      padding: 12px 25px;
+      padding: 12px 20px;
       border: none;
-      border-radius: 25px;
+      border-radius: 30px;
       font-size: 16px;
       cursor: pointer;
+      margin-top: 15px;
       text-decoration: none;
-      display: inline-block;
+      transition: background-color 0.3s;
+      width: 100%;
+      max-width: 300px;
     }
-    .whatsapp-button:hover {
-      background-color: #27ae60;
+
+    .btn-whatsapp:hover {
+      background-color: #128C7E;
+    }
+
+    @media (max-width: 480px) {
+      .profile img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .online-indicator {
+        width: 16px;
+        height: 16px;
+        bottom: 3px;
+        right: 3px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <img src="https://i.postimg.cc/ncWHhKt6/Imagem-do-Whats-App-de-2025-05-28-s-23-32-24-22db53f3.jpg" alt="Lais Borges" />
+
+  <div class="container">
+    <div class="profile">
+      <img src="https://i.postimg.cc/ncWHhKt6/Imagem-do-Whats-App-de-2025-05-28-s-23-32-24-22db53f3.jpg" alt="Lais Borges">
+      <div class="online-indicator"></div>
+    </div>
+
     <h2>Lais Borges</h2>
     <p>21 anos</p>
     <p>Bahia / São Paulo</p>
-    <a class="whatsapp-button" href="https://wa.me/seunumerodetelefone" target="_blank">
-      Falar no WhatsApp
-    </a>
+
+    <button class="btn-whatsapp" onclick="redirecionarWhatsApp()">Falar no WhatsApp</button>
   </div>
+
+  <script>
+    const numerosWhatsApp = [
+      '550000000001',
+      '550000000010'
+    ];
+
+    function redirecionarWhatsApp() {
+      let index = localStorage.getItem('whatsAppIndex');
+      if (index === null) {
+        index = 0;
+      } else {
+        index = (parseInt(index) + 1) % numerosWhatsApp.length;
+      }
+      localStorage.setItem('whatsAppIndex', index);
+
+      const numero = numerosWhatsApp[index];
+      const mensagem = encodeURIComponent("Olá, Lais! Quero falar com você.");
+      const link = `https://wa.me/${numero}?text=${mensagem}`;
+      window.location.href = link;
+    }
+  </script>
+
 </body>
 </html>
+
 
