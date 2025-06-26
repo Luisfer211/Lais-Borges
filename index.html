@@ -2,23 +2,27 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perfil - Lais Borges</title>
   <style>
     body {
+      margin: 0;
+      padding: 0;
       background-color: #e8e0d8;
       font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
     }
     .card {
       background-color: white;
-      padding: 30px;
+      padding: 25px;
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       text-align: center;
-      width: 300px;
+      width: 90%;
+      max-width: 320px;
     }
     .card img {
       width: 120px;
@@ -28,7 +32,7 @@
       margin-bottom: 15px;
     }
     .name {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: bold;
       color: #004d40;
     }
@@ -46,6 +50,23 @@
       text-decoration: none;
       font-size: 14px;
       display: inline-block;
+    }
+
+    /* Responsividade extra */
+    @media (max-width: 360px) {
+      .card {
+        padding: 20px;
+      }
+      .card img {
+        width: 100px;
+        height: 100px;
+      }
+      .name {
+        font-size: 18px;
+      }
+      .info, .whatsapp {
+        font-size: 13px;
+      }
     }
   </style>
 </head>
